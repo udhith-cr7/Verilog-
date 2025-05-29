@@ -4,7 +4,6 @@
 
 module implicit_net_declaration;                                                                         ​
 reg a,b;  
-wire out;​
 assign out=a|b;  ​
 initial begin    ​
 

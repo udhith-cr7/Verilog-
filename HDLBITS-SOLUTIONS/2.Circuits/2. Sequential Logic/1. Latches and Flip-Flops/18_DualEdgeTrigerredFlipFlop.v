@@ -3,13 +3,13 @@ module top_module (
     input d,
     output q
 );
-reg [1:0] r; 
-  always @(posedge clk) begin
-      r[0] <= d;
-  end
-    
-  always @(negedge clk) begin
-      r[1] <= d; 
-  end    
-  assign q = (clk) ? r[0] : r[1];
+reg q_pos, q_neg;
+
+    always @(posedge clk)
+        q_pos <= d;
+
+    always @(negedge clk)
+        q_neg <= d;
+
+    assign q = clk ? q_pos : q_neg;
 endmodule
